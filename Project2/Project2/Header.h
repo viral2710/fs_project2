@@ -439,6 +439,8 @@ void btree::read() {
 		s.name = res[1];
 		s.sem = res[2];
 		s.dept = res[3];
+		int temp=ds;
 		insert(s);
+		ds=temp;
 	}
 }
