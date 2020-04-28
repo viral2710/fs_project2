@@ -587,21 +587,28 @@ private: System::Void openToolStripMenuItem_Click(System::Object^ sender, System
 	openFD->Filter = "rft files (*.rft)|*.rft";
 	openFD->FileName = "";
 	openFD->ShowDialog();
+	if (openFD->FileName == "")
+		return;
 	filename = openFD->FileName;
 	this->Text = filename;
 	msclr::interop::marshal_context con;
 	string s= con.marshal_as<std::string>(filename);
 	cout << s << endl;
 	b = btree();
+	if (b.head == NULL) {
+		cout << "new";
+	}
 	for (int i = 0; i < 1000; i++) {
 		b.st[i] = "";
 	}
+	b.ds = 0;
 	StreamReader^ r = File::OpenText(filename);
 	int x = 0;
 	String^ line;
 	while ((line = r->ReadLine()) != nullptr) {
 		b.st[x++] = con.marshal_as<std::string>(line);
 	}
+	cout << x << endl;
 	b.ds = x;
 	b.read();
 	r->Close();
@@ -680,6 +687,8 @@ private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System
 		if (filename == "") {
 			savefd->FileName = "*.rft";
 			savefd->ShowDialog();
+			if (savefd->FileName == "")
+				return;
 			filename = savefd->FileName;
 			this->Text = filename;
 			StreamWriter^ outp = File::CreateText(filename);
@@ -708,9 +717,10 @@ private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System
 private: System::Void saveAsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	savefd->FileName = "*.rft";
 	savefd->ShowDialog();
+	if (savefd->FileName == "")
+		return;
 	filename = savefd->FileName;
 	this->Text = filename;
-	filename += ".rft";
 	StreamWriter^ out = File::CreateText(filename);
 	b.write();
 	for (int i = 0; i < b.ds; i++) {
@@ -730,6 +740,8 @@ private: System::Void MyForm_FormClosing(System::Object^ sender, System::Windows
 			if (filename == "") {
 				savefd->FileName = "*.rft";
 				savefd->ShowDialog();
+				if (savefd->FileName == "")
+					return;
 				filename = savefd->FileName;
 				this->Text = filename;
 				StreamWriter^ outp = File::CreateText(filename);
@@ -764,6 +776,8 @@ private: System::Void addTreeToolStripMenuItem_Click(System::Object^ sender, Sys
 	openFD->Filter = "rft files (*.rft)|*.rft";
 	openFD->FileName = "*.rft";
 	openFD->ShowDialog();
+	if (openFD->FileName == "")
+		return;
 	String^ filename1 = openFD->FileName;
 	msclr::interop::marshal_context con;
 	string s = con.marshal_as<std::string>(filename1);
