@@ -628,10 +628,12 @@ private: System::Void contentDisplayToolStripMenuItem_Click(System::Object^ send
 		display->Items->Add(dis);
 		
 	}
+	label7->Text = "";
 }
 
 private: System::Void search(System::Object^ sender, System::EventArgs^ e) {
 	display->Items->Clear();
+	label7->Text = "";
 	for (int i = 0; i < 1000; i++) {
 		b.st[i] = "";
 	}
