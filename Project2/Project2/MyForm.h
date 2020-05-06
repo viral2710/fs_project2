@@ -774,7 +774,7 @@ private: System::Void MyForm_FormClosing(System::Object^ sender, System::Windows
 }
 private: System::Void addTreeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	openFD->Filter = "rft files (*.rft)|*.rft";
-	openFD->FileName = "*.rft";
+	openFD->FileName = "";
 	openFD->ShowDialog();
 	if (openFD->FileName == "")
 		return;
