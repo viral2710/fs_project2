@@ -2,8 +2,17 @@
 #include<string>
 #include<fstream>
 #include <vector> 
+#include <algorithm>
 using namespace std;
+int case_insensitive_match(string s1, string s2) {
+	//convert s1 and s2 into lower case strings
+	transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+	transform(s2.begin(), s2.end(), s2.begin(), ::tolower);
 
+	if (s1.compare(s2) == 0)
+		return 1; //The strings are same
+	return 0; //not matched
+}
  
 vector<string> splitStrings(string str, char dl)
 {
@@ -29,8 +38,8 @@ class student
 public:
 	string usn;
 	string name;
-	string sem;
-	string dept;
+	string marks;
+	string attendance;
 	string Buf;
 	char buf[100];
 };
@@ -40,19 +49,19 @@ istream& operator >> (istream& in, student& s)
 	in >> s.usn;
 	cout << "Enter name:-";
 	in >> s.name;
-	cout << "Enter sem.:-";
-	in >> s.sem;
-	cout << "Enter dept.:-";
-	in >> s.dept;
+	cout << "Enter marks.:-";
+	in >> s.marks;
+	cout << "Enter attendance.:-";
+	in >> s.attendance;
 	return in;
 }
 ostream& operator << (ostream& out, student& s)
 {
-	out << s.usn << "\t" << s.name << "\t" << s.sem << "\t" << s.dept << "\t";
+	out << s.usn << "\t" << s.name << "\t" << s.marks << "\t" << s.attendance << "\t";
 	return out;
 }
 class node
-{
+{	
 public:
 	student value[4];
 	node* child[4];
@@ -87,8 +96,8 @@ node::node() {
 	for (int i = 0; i < size; i++) {
 		value[i].usn = "";
 		value[i].name = "";
-		value[i].sem = "";
-		value[i].dept = "";
+		value[i].marks = "";
+		value[i].attendance = "";
 		child[i] = NULL;
 	}
 	size = 0;
@@ -113,17 +122,11 @@ void btree::insert(student key) {
 	int i;
 
 	for (i = 0; i < n->size; i++) {
-		if (key.usn == n->value[i].usn) {
-			if (key.sem < n->value[i].sem)
-				break;
-			else if (key.sem > n->value[i].sem)
-				continue;
-			else {
+		if (case_insensitive_match(key.usn, n->value[i].usn)) {
+			
 
 				st[ds++]="already exits";
 				return;
-			}
-
 		}
 		if (key.usn < n->value[i].usn) {
 			break;
@@ -185,7 +188,7 @@ btree btree::del(student key) {
 	while (n != NULL) {
 
 		for (int i = 0; i < n->size; i++) {
-			if ((key.usn.compare(n->value[i].usn)) && (key.sem.compare(n->value[i].sem))) {
+			if ((case_insensitive_match(key.usn, n->value[i].usn)) == 0)  {
 					a[x++] = n->value[i];
 			}	
 			else {
@@ -220,7 +223,7 @@ btree btree::update(student key, student key2) {
 	while (n != NULL) {
 
 		for (int i = 0; i < n->size; i++) {
-			if ((key.usn.compare(n->value[i].usn)) && (key.sem.compare(n->value[i].sem)))
+			if ((case_insensitive_match(key.usn, n->value[i].usn))==0)
 				a[x++] = n->value[i];
 			else {
 				a[x++] = key2;
@@ -371,7 +374,7 @@ void btree::search(student key) {
 
 		if (ptr->child[0] == NULL) {
 			for (int i = 0; i < ptr->size; i++) {
-				if ((key.usn.compare(ptr->value[i].usn)==0)&&(key.sem.compare(ptr->value[i].sem)==0)) {
+				if ((case_insensitive_match(key.usn, ptr->value[i].usn))==1) {
 					flag = 1;
 					sd[ds++] = ptr->value[i];
 					return;
@@ -424,7 +427,7 @@ void btree::write() {
 		for (int i = 0; i < n->size; i++) {
 			if (n->value[i].usn == "")
 				continue;
-			st[ds++] = n->value[i].usn + "|" + n->value[i].name + "|" + n->value[i].sem + "|" + n->value[i].dept + "|";
+			st[ds++] = n->value[i].usn + "|" + n->value[i].name + "|" + n->value[i].marks + "|" + n->value[i].attendance + "|";
 		}
 		n = n->next;
 	}
@@ -433,14 +436,16 @@ void btree::write() {
 void btree::read() {
 	char dl = '|';
 	student s;
-	for (int i = 0; i < ds; i++) {
-		vector<string> res = splitStrings(st[i], dl);
+	cout << ds<<endl;
+	for (int j = 0; j < ds; j++) {
+		cout << st[j]<<j<<endl;
+		vector<string> res = splitStrings(st[j], dl);
 		s.usn = res[0];
 		s.name = res[1];
-		s.sem = res[2];
-		s.dept = res[3];
-		int temp=ds;
+		s.marks = res[2];
+		s.attendance = res[3];
+		int temp = ds;
 		insert(s);
-		ds=temp;
+		ds = temp;
 	}
 }

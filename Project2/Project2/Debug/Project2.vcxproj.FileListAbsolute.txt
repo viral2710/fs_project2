@@ -2,3 +2,7 @@ C:\Users\viral\source\repos\Project2\Project2\Debug\Project2.vcxprojAssemblyRefe
 C:\Users\viral\source\repos\Project2\Project2\Debug\Project2.MyForm.resources
 C:\Users\viral\source\repos\Project2\Project2\Debug\Project2.vcxproj.GenerateResource.cache
 C:\Users\viral\source\repos\Project2\Project2\Debug\Project2.update.resources
+C:\Users\viral\Desktop\fs_project2-master\Project2\Project2\Debug\Project2.vcxprojAssemblyReference.cache
+C:\Users\viral\Desktop\fs_project2-master\Project2\Project2\Debug\Project2.MyForm.resources
+C:\Users\viral\Desktop\fs_project2-master\Project2\Project2\Debug\Project2.update.resources
+C:\Users\viral\Desktop\fs_project2-master\Project2\Project2\Debug\Project2.vcxproj.GenerateResource.cache

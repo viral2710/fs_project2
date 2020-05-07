@@ -36,9 +36,9 @@ namespace Project2 {
 			}
 		}
 	private: System::Windows::Forms::TextBox^ usn;
-	private: System::Windows::Forms::TextBox^ sem;
+
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label4;
 	protected:
@@ -60,9 +60,7 @@ namespace Project2 {
 		void InitializeComponent(void)
 		{
 			this->usn = (gcnew System::Windows::Forms::TextBox());
-			this->sem = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
@@ -76,15 +74,6 @@ namespace Project2 {
 			this->usn->Size = System::Drawing::Size(210, 26);
 			this->usn->TabIndex = 0;
 			// 
-			// sem
-			// 
-			this->sem->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->sem->Location = System::Drawing::Point(114, 100);
-			this->sem->Name = L"sem";
-			this->sem->Size = System::Drawing::Size(210, 26);
-			this->sem->TabIndex = 1;
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
@@ -97,22 +86,11 @@ namespace Project2 {
 			this->label1->Text = L"USN";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(44, 101);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(45, 19);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"SEM.";
-			// 
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(167, 132);
+			this->button1->Location = System::Drawing::Point(167, 91);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(192, 27);
 			this->button1->TabIndex = 4;
@@ -135,12 +113,10 @@ namespace Project2 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(371, 177);
+			this->ClientSize = System::Drawing::Size(374, 127);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->sem);
 			this->Controls->Add(this->usn);
 			this->Name = L"MyForm1";
 			this->Text = L"Update";
@@ -152,7 +128,6 @@ namespace Project2 {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		StreamWriter^ outp = File::CreateText("project.txt");
 		outp->WriteLine(usn->Text);
-		outp->WriteLine(sem->Text);
 		outp->Close();
 		this->Close();
 	}

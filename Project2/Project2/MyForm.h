@@ -33,11 +33,14 @@ namespace Project2 {
 
 	private: System::Windows::Forms::ColumnHeader^ displayusn;
 	private: System::Windows::Forms::ColumnHeader^ displayname;
-	private: System::Windows::Forms::ColumnHeader^ displaysem;
-	private: System::Windows::Forms::ColumnHeader^ dispalydept;
-	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::TextBox^ ssem;
+	private: System::Windows::Forms::ColumnHeader^ displaymarks;
+	private: System::Windows::Forms::ColumnHeader^ dispalyattendance;
+
+
+
+
 	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::ListBox^ sdisplay;
 
 
 
@@ -91,12 +94,14 @@ namespace Project2 {
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ name;
-	private: System::Windows::Forms::TextBox^ sem;
+	private: System::Windows::Forms::TextBox^ marks;
+
 
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ dept;
+	private: System::Windows::Forms::TextBox^ attendance;
+
 	private: System::Windows::Forms::TextBox^ susn;
 
 
@@ -150,10 +155,10 @@ namespace Project2 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->name = (gcnew System::Windows::Forms::TextBox());
-			this->sem = (gcnew System::Windows::Forms::TextBox());
+			this->marks = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->dept = (gcnew System::Windows::Forms::TextBox());
+			this->attendance = (gcnew System::Windows::Forms::TextBox());
 			this->susn = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -165,11 +170,10 @@ namespace Project2 {
 			this->display = (gcnew System::Windows::Forms::ListView());
 			this->displayusn = (gcnew System::Windows::Forms::ColumnHeader());
 			this->displayname = (gcnew System::Windows::Forms::ColumnHeader());
-			this->displaysem = (gcnew System::Windows::Forms::ColumnHeader());
-			this->dispalydept = (gcnew System::Windows::Forms::ColumnHeader());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->ssem = (gcnew System::Windows::Forms::TextBox());
+			this->displaymarks = (gcnew System::Windows::Forms::ColumnHeader());
+			this->dispalyattendance = (gcnew System::Windows::Forms::ColumnHeader());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->sdisplay = (gcnew System::Windows::Forms::ListBox());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -177,7 +181,7 @@ namespace Project2 {
 			// 
 			this->usn->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->usn->Location = System::Drawing::Point(83, 43);
+			this->usn->Location = System::Drawing::Point(97, 43);
 			this->usn->Name = L"usn";
 			this->usn->Size = System::Drawing::Size(138, 26);
 			this->usn->TabIndex = 0;
@@ -337,19 +341,19 @@ namespace Project2 {
 			// 
 			this->name->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->name->Location = System::Drawing::Point(83, 75);
+			this->name->Location = System::Drawing::Point(98, 75);
 			this->name->Name = L"name";
 			this->name->Size = System::Drawing::Size(137, 26);
 			this->name->TabIndex = 6;
 			// 
-			// sem
+			// marks
 			// 
-			this->sem->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->marks->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->sem->Location = System::Drawing::Point(83, 107);
-			this->sem->Name = L"sem";
-			this->sem->Size = System::Drawing::Size(137, 26);
-			this->sem->TabIndex = 8;
+			this->marks->Location = System::Drawing::Point(99, 107);
+			this->marks->Name = L"marks";
+			this->marks->Size = System::Drawing::Size(137, 26);
+			this->marks->TabIndex = 8;
 			// 
 			// label3
 			// 
@@ -358,9 +362,9 @@ namespace Project2 {
 				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(24, 110);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(40, 19);
+			this->label3->Size = System::Drawing::Size(49, 19);
 			this->label3->TabIndex = 9;
-			this->label3->Text = L"Sem.";
+			this->label3->Text = L"Marks";
 			// 
 			// label4
 			// 
@@ -369,18 +373,18 @@ namespace Project2 {
 				static_cast<System::Byte>(0)));
 			this->label4->Location = System::Drawing::Point(22, 142);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(43, 19);
+			this->label4->Size = System::Drawing::Size(78, 19);
 			this->label4->TabIndex = 10;
-			this->label4->Text = L"Dept.";
+			this->label4->Text = L"Attendance";
 			// 
-			// dept
+			// attendance
 			// 
-			this->dept->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->attendance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->dept->Location = System::Drawing::Point(83, 139);
-			this->dept->Name = L"dept";
-			this->dept->Size = System::Drawing::Size(138, 26);
-			this->dept->TabIndex = 11;
+			this->attendance->Location = System::Drawing::Point(98, 139);
+			this->attendance->Name = L"attendance";
+			this->attendance->Size = System::Drawing::Size(138, 26);
+			this->attendance->TabIndex = 11;
 			// 
 			// susn
 			// 
@@ -421,7 +425,7 @@ namespace Project2 {
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(26, 343);
+			this->button1->Location = System::Drawing::Point(26, 302);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(195, 27);
 			this->button1->TabIndex = 17;
@@ -453,14 +457,14 @@ namespace Project2 {
 			// 
 			this->display->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(4) {
 				this->displayusn, this->displayname,
-					this->displaysem, this->dispalydept
+					this->displaymarks, this->dispalyattendance
 			});
 			this->display->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->display->HideSelection = false;
 			this->display->Location = System::Drawing::Point(242, 27);
 			this->display->Name = L"display";
-			this->display->Size = System::Drawing::Size(667, 363);
+			this->display->Size = System::Drawing::Size(667, 218);
 			this->display->TabIndex = 20;
 			this->display->UseCompatibleStateImageBehavior = false;
 			this->display->View = System::Windows::Forms::View::Details;
@@ -475,35 +479,15 @@ namespace Project2 {
 			this->displayname->Text = L"Name";
 			this->displayname->Width = 100;
 			// 
-			// displaysem
+			// displaymarks
 			// 
-			this->displaysem->Text = L"SEM.";
-			this->displaysem->Width = 100;
+			this->displaymarks->Text = L"Marks";
+			this->displaymarks->Width = 100;
 			// 
-			// dispalydept
+			// dispalyattendance
 			// 
-			this->dispalydept->Text = L"Dept.";
-			this->dispalydept->Width = 100;
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(22, 307);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(40, 19);
-			this->label9->TabIndex = 21;
-			this->label9->Text = L"Sem.";
-			// 
-			// ssem
-			// 
-			this->ssem->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->ssem->Location = System::Drawing::Point(83, 306);
-			this->ssem->Name = L"ssem";
-			this->ssem->Size = System::Drawing::Size(138, 26);
-			this->ssem->TabIndex = 22;
+			this->dispalyattendance->Text = L"Attendance";
+			this->dispalyattendance->Width = 100;
 			// 
 			// label7
 			// 
@@ -516,14 +500,25 @@ namespace Project2 {
 			this->label7->Size = System::Drawing::Size(0, 14);
 			this->label7->TabIndex = 23;
 			// 
+			// sdisplay
+			// 
+			this->sdisplay->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->sdisplay->FormattingEnabled = true;
+			this->sdisplay->ItemHeight = 19;
+			this->sdisplay->Location = System::Drawing::Point(244, 267);
+			this->sdisplay->Name = L"sdisplay";
+			this->sdisplay->Size = System::Drawing::Size(664, 99);
+			this->sdisplay->TabIndex = 24;
+			this->sdisplay->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::sdisplay_SelectedIndexChanged);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(921, 402);
+			this->Controls->Add(this->sdisplay);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->ssem);
-			this->Controls->Add(this->label9);
 			this->Controls->Add(this->display);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->label8);
@@ -531,10 +526,10 @@ namespace Project2 {
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->susn);
-			this->Controls->Add(this->dept);
+			this->Controls->Add(this->attendance);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->sem);
+			this->Controls->Add(this->marks);
 			this->Controls->Add(this->name);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -554,7 +549,7 @@ namespace Project2 {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		if (usn->Text==""|| name->Text == "" || sem->Text == "" || dept->Text == "")
+		if (usn->Text==""|| name->Text == "" || marks->Text == "" || attendance->Text == "")
 		{
 			MessageBox::Show("Enter Value Please.", "Error");
 		}
@@ -563,15 +558,16 @@ namespace Project2 {
 			msclr::interop::marshal_context con;
 			s.usn= con.marshal_as< std::string >(usn->Text);
 			s.name= con.marshal_as<std::string>(name->Text);
-			s.sem= con.marshal_as<std::string>(sem->Text);
-			s.dept= con.marshal_as<std::string>(dept->Text);
+			s.marks= con.marshal_as<std::string>(marks->Text);
+			s.attendance= con.marshal_as<std::string>(attendance->Text);
 			b.insert(s);
 			if (b.ds != 0) {
 				label7->Text = gcnew String(b.st[0].c_str());
+				usn->Text = ""; name->Text = ""; marks->Text = ""; attendance->Text = "";
 				return;
 			}
 			flags = 0;
-			usn->Text = ""; name->Text = ""; sem->Text =""; dept->Text = "";
+			usn->Text = ""; name->Text = ""; marks->Text =""; attendance->Text = "";
 		}
 	}
 	private: System::Void fileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -630,8 +626,8 @@ private: System::Void contentDisplayToolStripMenuItem_Click(System::Object^ send
 		String^ s = gcnew String((b.sd[i].usn).c_str());
 		ListViewItem^ dis=gcnew ListViewItem(s);
 		dis->SubItems->Add(gcnew String((b.sd[i].name).c_str()));
-		dis->SubItems->Add(gcnew String((b.sd[i].sem).c_str()));
-		dis->SubItems->Add(gcnew String((b.sd[i].dept).c_str()));
+		dis->SubItems->Add(gcnew String((b.sd[i].marks).c_str()));
+		dis->SubItems->Add(gcnew String((b.sd[i].attendance).c_str()));
 		display->Items->Add(dis);
 		
 	}
@@ -639,13 +635,13 @@ private: System::Void contentDisplayToolStripMenuItem_Click(System::Object^ send
 }
 
 private: System::Void search(System::Object^ sender, System::EventArgs^ e) {
-	display->Items->Clear();
+	sdisplay->Items->Clear();
 	label7->Text = "";
 	for (int i = 0; i < 1000; i++) {
 		b.st[i] = "";
 	}
 	b.ds = 0;
-	if (susn->Text == ""|| ssem->Text=="")
+	if (susn->Text == "")
 	{
 		MessageBox::Show("Enter Value Please.", "Error");
 	}
@@ -655,25 +651,28 @@ private: System::Void search(System::Object^ sender, System::EventArgs^ e) {
 		s.usn = con.marshal_as<std::string>(susn->Text);
 		cout << s.usn << endl;
 		s.name = "";
-		s.sem = con.marshal_as<std::string>(ssem->Text);
-		s.dept = "";
+		s.marks = "";
+		s.attendance = "";
 		b.search(s);
 		if(b.flag==0) {
 				label7->Text = gcnew String(b.st[0].c_str());
 				return;
 		}
 		for (int i = 0; i < b.ds; i++) {
-			String^ s = gcnew String((b.sd[i].usn).c_str());
-			ListViewItem^ dis = gcnew ListViewItem(s);
-			dis->SubItems->Add(gcnew String((b.sd[i].name).c_str()));
-			dis->SubItems->Add(gcnew String((b.sd[i].sem).c_str()));
-			dis->SubItems->Add(gcnew String((b.sd[i].dept).c_str()));
-			display->Items->Add(dis);
+			String^ s = "The result for search is :-";
+			sdisplay->Items->Add(s);
+			s="\t\tUSN:-"+gcnew String((b.sd[i].usn).c_str());
+			sdisplay->Items->Add(s);
+			s = "\t\tName:-" + gcnew String((b.sd[i].name).c_str());
+			sdisplay->Items->Add(s);
+			s = "\t\tMarks:-" + gcnew String((b.sd[i].marks).c_str());
+			sdisplay->Items->Add(s);
+			s = "\t\tAttendance:-" + gcnew String((b.sd[i].attendance).c_str());
+			sdisplay->Items->Add(s);
 
 		}
 		b.ds = 0;
 		susn->Text = "";
-		ssem->Text = "";
 	}
 }
 	private: System::Void newToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -801,7 +800,7 @@ private: System::Void aboutToolStripMenuItem_Click(System::Object^ sender, Syste
 	
 }
 private: System::Void updateToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (usn->Text == "" || name->Text == "" || sem->Text == "" || dept->Text == "")
+	if (usn->Text == "" || name->Text == "" || marks->Text == "" || attendance->Text == "")
 	{
 		MessageBox::Show("Enter Value Please.", "Error");
 	}
@@ -810,14 +809,13 @@ private: System::Void updateToolStripMenuItem_Click(System::Object^ sender, Syst
 		msclr::interop::marshal_context con;
 		s.usn = con.marshal_as< std::string >(usn->Text);
 		s.name = con.marshal_as<std::string>(name->Text);
-		s.sem = con.marshal_as<std::string>(sem->Text);
-		s.dept = con.marshal_as<std::string>(dept->Text);
-		usn->Text = ""; name->Text = ""; sem->Text = ""; dept->Text = "";
+		s.marks = con.marshal_as<std::string>(marks->Text);
+		s.attendance = con.marshal_as<std::string>(attendance->Text);
+		usn->Text = ""; name->Text = ""; marks->Text = ""; attendance->Text = "";
 		Project2::MyForm1 f;
 		f.ShowDialog();
 		StreamReader^ r = File::OpenText("project.txt");
 		s2.usn = con.marshal_as< std::string >(r->ReadLine());
-		s2.sem = con.marshal_as< std::string >(r->ReadLine());
 		b = b.update(s2, s);
 		if (b.ds != 0) {
 			label7->Text = gcnew String(b.st[0].c_str());
@@ -828,7 +826,7 @@ private: System::Void updateToolStripMenuItem_Click(System::Object^ sender, Syst
 	}
 }
 private: System::Void deleteToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (usn->Text == "" || name->Text == "" || sem->Text == "" || dept->Text == "")
+	if (usn->Text == "" || name->Text == "" || marks->Text == "" || attendance->Text == "")
 	{
 		MessageBox::Show("Enter Value Please.", "Error");
 	}
@@ -837,8 +835,8 @@ private: System::Void deleteToolStripMenuItem_Click(System::Object^ sender, Syst
 		msclr::interop::marshal_context con;
 		s.usn = con.marshal_as< std::string >(usn->Text);
 		s.name = con.marshal_as<std::string>(name->Text);
-		s.sem = con.marshal_as<std::string>(sem->Text);
-		s.dept = con.marshal_as<std::string>(dept->Text);
+		s.marks = con.marshal_as<std::string>(marks->Text);
+		s.attendance = con.marshal_as<std::string>(attendance->Text);
 		b=(b.del(s));
 		cout << b.ds << endl << b.st[0] << endl;
 		if (b.ds != 0) {
@@ -846,9 +844,12 @@ private: System::Void deleteToolStripMenuItem_Click(System::Object^ sender, Syst
 			return;
 		}
 		flags = 0;
-		usn->Text = ""; name->Text = ""; sem->Text = ""; dept->Text = "";
+		usn->Text = ""; name->Text = ""; marks->Text = ""; attendance->Text = "";
 	}
 }
 
+
+private: System::Void sdisplay_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
