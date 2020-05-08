@@ -1,4 +1,2 @@
-﻿  MyForm.cpp
-C:\Users\viral\Desktop\fs_project2-master\Project2\Project2\header.h(22,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+﻿  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Project2.vcxproj -> C:\Users\viral\Desktop\fs_project2-master\Project2\x64\Debug\Project2.exe

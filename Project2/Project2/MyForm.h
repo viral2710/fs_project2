@@ -41,6 +41,7 @@ namespace Project2 {
 
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::ListBox^ sdisplay;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
 
 
@@ -174,6 +175,7 @@ namespace Project2 {
 			this->dispalyattendance = (gcnew System::Windows::Forms::ColumnHeader());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->sdisplay = (gcnew System::Windows::Forms::ListBox());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -181,18 +183,20 @@ namespace Project2 {
 			// 
 			this->usn->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->usn->Location = System::Drawing::Point(97, 43);
+			this->usn->Location = System::Drawing::Point(146, 63);
+			this->usn->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->usn->Name = L"usn";
-			this->usn->Size = System::Drawing::Size(138, 26);
+			this->usn->Size = System::Drawing::Size(205, 26);
 			this->usn->TabIndex = 0;
 			// 
 			// insert
 			// 
 			this->insert->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->insert->Location = System::Drawing::Point(26, 218);
+			this->insert->Location = System::Drawing::Point(39, 319);
+			this->insert->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->insert->Name = L"insert";
-			this->insert->Size = System::Drawing::Size(192, 27);
+			this->insert->Size = System::Drawing::Size(288, 39);
 			this->insert->TabIndex = 1;
 			this->insert->Text = L"Insert";
 			this->insert->UseVisualStyleBackColor = true;
@@ -206,7 +210,8 @@ namespace Project2 {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(921, 24);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(9, 3, 0, 3);
+			this->menuStrip1->Size = System::Drawing::Size(1382, 25);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -217,7 +222,7 @@ namespace Project2 {
 					this->openToolStripMenuItem, this->saveToolStripMenuItem, this->saveAsToolStripMenuItem, this->exitToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(35, 20);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(35, 19);
 			this->fileToolStripMenuItem->Text = L"file";
 			this->fileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem_Click);
 			// 
@@ -263,7 +268,7 @@ namespace Project2 {
 					this->deleteToolStripMenuItem, this->addTreeToolStripMenuItem
 			});
 			this->editToolStripMenuItem->Name = L"editToolStripMenuItem";
-			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 20);
+			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 19);
 			this->editToolStripMenuItem->Text = L"edit";
 			// 
 			// updateToolStripMenuItem
@@ -291,7 +296,7 @@ namespace Project2 {
 			// 
 			this->viewToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->contentDisplayToolStripMenuItem });
 			this->viewToolStripMenuItem->Name = L"viewToolStripMenuItem";
-			this->viewToolStripMenuItem->Size = System::Drawing::Size(43, 20);
+			this->viewToolStripMenuItem->Size = System::Drawing::Size(43, 19);
 			this->viewToolStripMenuItem->Text = L"view";
 			// 
 			// contentDisplayToolStripMenuItem
@@ -305,7 +310,7 @@ namespace Project2 {
 			// 
 			this->heToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->aboutToolStripMenuItem });
 			this->heToolStripMenuItem->Name = L"heToolStripMenuItem";
-			this->heToolStripMenuItem->Size = System::Drawing::Size(42, 20);
+			this->heToolStripMenuItem->Size = System::Drawing::Size(42, 19);
 			this->heToolStripMenuItem->Text = L"help";
 			// 
 			// aboutToolStripMenuItem
@@ -320,7 +325,8 @@ namespace Project2 {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(24, 46);
+			this->label1->Location = System::Drawing::Point(36, 67);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(41, 19);
 			this->label1->TabIndex = 3;
@@ -331,7 +337,8 @@ namespace Project2 {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(24, 78);
+			this->label2->Location = System::Drawing::Point(36, 114);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(46, 19);
 			this->label2->TabIndex = 5;
@@ -341,18 +348,20 @@ namespace Project2 {
 			// 
 			this->name->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->name->Location = System::Drawing::Point(98, 75);
+			this->name->Location = System::Drawing::Point(147, 110);
+			this->name->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->name->Name = L"name";
-			this->name->Size = System::Drawing::Size(137, 26);
+			this->name->Size = System::Drawing::Size(204, 26);
 			this->name->TabIndex = 6;
 			// 
 			// marks
 			// 
 			this->marks->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->marks->Location = System::Drawing::Point(99, 107);
+			this->marks->Location = System::Drawing::Point(148, 156);
+			this->marks->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->marks->Name = L"marks";
-			this->marks->Size = System::Drawing::Size(137, 26);
+			this->marks->Size = System::Drawing::Size(204, 26);
 			this->marks->TabIndex = 8;
 			// 
 			// label3
@@ -360,7 +369,8 @@ namespace Project2 {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(24, 110);
+			this->label3->Location = System::Drawing::Point(36, 161);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(49, 19);
 			this->label3->TabIndex = 9;
@@ -371,7 +381,8 @@ namespace Project2 {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(22, 142);
+			this->label4->Location = System::Drawing::Point(33, 208);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(78, 19);
 			this->label4->TabIndex = 10;
@@ -381,18 +392,20 @@ namespace Project2 {
 			// 
 			this->attendance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->attendance->Location = System::Drawing::Point(98, 139);
+			this->attendance->Location = System::Drawing::Point(147, 203);
+			this->attendance->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->attendance->Name = L"attendance";
-			this->attendance->Size = System::Drawing::Size(138, 26);
+			this->attendance->Size = System::Drawing::Size(205, 26);
 			this->attendance->TabIndex = 11;
 			// 
 			// susn
 			// 
 			this->susn->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->susn->Location = System::Drawing::Point(81, 270);
+			this->susn->Location = System::Drawing::Point(122, 395);
+			this->susn->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->susn->Name = L"susn";
-			this->susn->Size = System::Drawing::Size(137, 26);
+			this->susn->Size = System::Drawing::Size(204, 26);
 			this->susn->TabIndex = 12;
 			// 
 			// label5
@@ -400,7 +413,8 @@ namespace Project2 {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(24, 248);
+			this->label5->Location = System::Drawing::Point(36, 362);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(177, 19);
 			this->label5->TabIndex = 13;
@@ -411,7 +425,8 @@ namespace Project2 {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(24, 273);
+			this->label6->Location = System::Drawing::Point(36, 399);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(41, 19);
 			this->label6->TabIndex = 14;
@@ -425,9 +440,10 @@ namespace Project2 {
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(26, 302);
+			this->button1->Location = System::Drawing::Point(39, 441);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(195, 27);
+			this->button1->Size = System::Drawing::Size(292, 39);
 			this->button1->TabIndex = 17;
 			this->button1->Text = L"Search";
 			this->button1->UseVisualStyleBackColor = true;
@@ -436,9 +452,10 @@ namespace Project2 {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(23, 185);
+			this->label8->Location = System::Drawing::Point(34, 270);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(0, 13);
+			this->label8->Size = System::Drawing::Size(0, 19);
 			this->label8->TabIndex = 18;
 			// 
 			// listBox1
@@ -447,10 +464,12 @@ namespace Project2 {
 			this->listBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->listBox1->ForeColor = System::Drawing::Color::Red;
 			this->listBox1->FormattingEnabled = true;
+			this->listBox1->ItemHeight = 19;
 			this->listBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"*for update and delete write the value ", L"above and select the option in edit menu" });
-			this->listBox1->Location = System::Drawing::Point(21, 176);
+			this->listBox1->Location = System::Drawing::Point(32, 257);
+			this->listBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(199, 26);
+			this->listBox1->Size = System::Drawing::Size(298, 38);
 			this->listBox1->TabIndex = 19;
 			// 
 			// display
@@ -462,9 +481,10 @@ namespace Project2 {
 			this->display->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->display->HideSelection = false;
-			this->display->Location = System::Drawing::Point(242, 27);
+			this->display->Location = System::Drawing::Point(363, 39);
+			this->display->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->display->Name = L"display";
-			this->display->Size = System::Drawing::Size(667, 218);
+			this->display->Size = System::Drawing::Size(998, 317);
 			this->display->TabIndex = 20;
 			this->display->UseCompatibleStateImageBehavior = false;
 			this->display->View = System::Windows::Forms::View::Details;
@@ -472,22 +492,25 @@ namespace Project2 {
 			// displayusn
 			// 
 			this->displayusn->Text = L"USN";
-			this->displayusn->Width = 100;
+			this->displayusn->Width = 200;
 			// 
 			// displayname
 			// 
 			this->displayname->Text = L"Name";
-			this->displayname->Width = 100;
+			this->displayname->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->displayname->Width = 400;
 			// 
 			// displaymarks
 			// 
 			this->displaymarks->Text = L"Marks";
-			this->displaymarks->Width = 100;
+			this->displaymarks->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->displaymarks->Width = 200;
 			// 
 			// dispalyattendance
 			// 
 			this->dispalyattendance->Text = L"Attendance";
-			this->dispalyattendance->Width = 100;
+			this->dispalyattendance->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->dispalyattendance->Width = 200;
 			// 
 			// label7
 			// 
@@ -495,7 +518,8 @@ namespace Project2 {
 			this->label7->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::Color::Red;
-			this->label7->Location = System::Drawing::Point(25, 371);
+			this->label7->Location = System::Drawing::Point(38, 542);
+			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(0, 14);
 			this->label7->TabIndex = 23;
@@ -506,17 +530,22 @@ namespace Project2 {
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->sdisplay->FormattingEnabled = true;
 			this->sdisplay->ItemHeight = 19;
-			this->sdisplay->Location = System::Drawing::Point(244, 267);
+			this->sdisplay->Location = System::Drawing::Point(366, 390);
+			this->sdisplay->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->sdisplay->Name = L"sdisplay";
-			this->sdisplay->Size = System::Drawing::Size(664, 99);
+			this->sdisplay->Size = System::Drawing::Size(994, 137);
 			this->sdisplay->TabIndex = 24;
 			this->sdisplay->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::sdisplay_SelectedIndexChanged);
 			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(921, 402);
+			this->ClientSize = System::Drawing::Size(1382, 588);
 			this->Controls->Add(this->sdisplay);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->display);
@@ -536,7 +565,12 @@ namespace Project2 {
 			this->Controls->Add(this->insert);
 			this->Controls->Add(this->usn);
 			this->Controls->Add(this->menuStrip1);
+			this->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->MaximumSize = System::Drawing::Size(1398, 627);
+			this->MinimumSize = System::Drawing::Size(1398, 627);
 			this->Name = L"MyForm";
 			this->Text = L"Student db";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);

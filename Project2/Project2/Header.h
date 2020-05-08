@@ -6,9 +6,9 @@
 using namespace std;
 int case_insensitive_match(string s1, string s2) {
 	//convert s1 and s2 into lower case strings
-	transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
-	transform(s2.begin(), s2.end(), s2.begin(), ::tolower);
-
+	transform(s1.begin(), s1.end(), s1.begin(), ::toupper);
+	transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
+	cout << s1 << "\t" << s2<<endl;
 	if (s1.compare(s2) == 0)
 		return 1; //The strings are same
 	return 0; //not matched
@@ -112,6 +112,9 @@ btree::btree() {
 }
 void btree::insert(student key) {
 	ds = 0;
+
+	transform(key.usn.begin(),key.usn.end(), key.usn.begin(), ::toupper);
+	cout << key.usn << endl;
 	if (head == NULL) {
 		head = new node;
 		head->value[head->size] = key;
@@ -176,6 +179,7 @@ node* btree::findlevel(student key, node* n) {
 	return ptr;
 }
 btree btree::del(student key) {
+	transform(key.usn.begin(), key.usn.end(), key.usn.begin(), ::toupper);
 	node* n = head;
 	int x = 0;
 	btree b;
@@ -188,9 +192,9 @@ btree btree::del(student key) {
 	while (n != NULL) {
 
 		for (int i = 0; i < n->size; i++) {
-			if ((case_insensitive_match(key.usn, n->value[i].usn)) == 0)  {
-					a[x++] = n->value[i];
-			}	
+			if ((case_insensitive_match(key.usn, n->value[i].usn)) == 0) {
+				a[x++] = n->value[i];
+			}
 			else {
 				flage = 1;
 			}
@@ -198,7 +202,7 @@ btree btree::del(student key) {
 		n = n->next;
 	}
 	if (flage == 0) {
-		b.st[0]="element not found\n";
+		b.st[0] = "element not found\n";
 		b.ds++;
 		b.head = head;
 		return b;
@@ -210,6 +214,8 @@ btree btree::del(student key) {
 	return b;
 }
 btree btree::update(student key, student key2) {
+	transform(key.usn.begin(), key.usn.end(), key.usn.begin(), ::toupper);
+	transform(key2.usn.begin(), key2.usn.end(), key2.usn.begin(), ::toupper);
 	node* n = head;
 	int x = 0;
 	btree b;
@@ -366,6 +372,7 @@ void btree::display() {
 	return;
 }
 void btree::search(student key) {
+	transform(key.usn.begin(), key.usn.end(), key.usn.begin(), ::toupper);
 	node* ptr = head;
 	ds = 0;
 	int x = 0;
@@ -375,6 +382,8 @@ void btree::search(student key) {
 		if (ptr->child[0] == NULL) {
 			for (int i = 0; i < ptr->size; i++) {
 				if ((case_insensitive_match(key.usn, ptr->value[i].usn))==1) {
+					transform(key.usn.begin(), key.usn.end(), key.usn.begin(), ::toupper);
+					cout << key.usn<<endl;
 					flag = 1;
 					sd[ds++] = ptr->value[i];
 					return;
