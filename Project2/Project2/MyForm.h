@@ -718,7 +718,7 @@ private: System::Void search(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (flags != 1) {
 		if (filename == "") {
-			savefd->FileName = "*.rft";
+			savefd->FileName = "";
 			savefd->ShowDialog();
 			if (savefd->FileName == "")
 				return;
@@ -748,7 +748,7 @@ private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System
 	}
 }
 private: System::Void saveAsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	savefd->FileName = "*.rft";
+	savefd->FileName = "";
 	savefd->ShowDialog();
 	if (savefd->FileName == "")
 		return;
